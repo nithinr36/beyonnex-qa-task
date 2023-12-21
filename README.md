@@ -57,7 +57,7 @@ docker run -i -v "%cd%/mochareports:/tests/mochareports" beyonnex-cypress-tests:
 
 This command mounts the local `mochareports` directory inside the Docker container for storing MochaAwesome reports.
 
-### 3. Generate MochaAwesome Reports
+## Generate MochaAwesome Reports
 
 You can also generate MochaAwesome reports using the following commands:
 
@@ -68,4 +68,31 @@ npm run generate-report
 
 This will merge and generate MochaAwesome HTML reports in the `mochareports` directory.
 
-Feel free to explore and provide the feedback.
+## Assumptions
+
+1. The temperature on the home page changes on every refresh of the page.
+2. The home page of the web application under test displays the temperature that is either below 19 degrees or above 34 degrees.
+3. The valid card details from stripe work without any failure.
+4. The 5% payment transaction failure is considered to be an expected behavior; hence, the assertion is set to true.
+
+## Test Scenarios Explained
+
+### Scenario 1: Hot Temperatures (Above 34 degrees)
+
+1. The reload call in a recursive function ensures that the test always gets the temperature above 34 degrees.
+2. Once the temperature condition is satisfied, the page is navigated to the sunscreen shopping page.
+3. The cheapest of the SPF-50 and SPF-30 are noted (aliased for further verification) and added to the cart.
+4. Navigating to the cart page, the items in the cart and total price are verified.
+5. Payment is made by entering valid card details from stripe.
+6. The payment transaction status is verified.
+
+### Scenario 2: Cold Temperatures (Below 19 degrees)
+
+1. The reload call in a recursive function ensures that the test always gets the temperature below 19 degrees.
+2. Once the temperature condition is satisfied, the page is navigated to the moisturizer shopping page.
+3. The cheapest of the Aloe and Almond are noted (aliased for further verification) and added to the cart.
+4. Navigating to the cart page, the items in the cart and total price are verified.
+5. Payment is made by entering valid card details from stripe.
+6. The payment transaction status is verified.
+
+Feel free to refer to these assumptions and test scenarios for a better understanding of the automation tests.
