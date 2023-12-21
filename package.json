@@ -1,0 +1,21 @@
+{
+  "name": "beyonnex",
+  "version": "1.0.0",
+  "description": "beyonnex QA task",
+  "scripts": {
+    "prettier": "prettier --write .",
+    "merge-reports": "mochawesome-merge mochareports/*.json > mochareports/report.json",
+    "generate-report": "marge mochareports/report.json -f report -o mochareports"
+  },
+  "author": "Nithin Ramesha",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^13.6.1",
+    "cypress-multi-reporters": "^1.6.4",
+    "husky": "^8.0.3",
+    "mochawesome": "^7.1.3",
+    "prettier": "^3.1.1",
+        "ts-loader": "^6.2.2",
+    "typescript": "4.3.5"
+  }
+}

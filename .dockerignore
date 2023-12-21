@@ -1,0 +1,6 @@
+/node_modules
+/mochareports
+.prettierignore
+.prettierrc
+.gitignore
+README.md
